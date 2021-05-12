@@ -21,4 +21,10 @@ public class EmployeeService {
     public List<Employee> getAll() {
         return employeeList;
     }
+
+    public Employee getEmployee(UUID uuid) {
+        Employee employeeFound = employeeList.stream().filter(employee -> employee.getUid().equals(uuid)).findFirst().orElse(null);
+
+        return employeeFound;
+    }
 }
